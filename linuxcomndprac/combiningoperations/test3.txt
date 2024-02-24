@@ -1,0 +1,4 @@
+The two lines below were appended from test1 and test2 into here in the same call
+
+bThis test was written directly into test1
+This test was written directly into test2
