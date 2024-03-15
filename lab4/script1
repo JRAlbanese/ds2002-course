@@ -1,0 +1,18 @@
+#!/bin/bash
+
+aws s3 mb s3://ds2002-pwg2gq
+
+curl https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg > cat.jpg
+
+aws s3 cp cat.jpg s3://ds2002-pwg2gq/
+
+aws s3 presign --expires-in 604800 s3://ds2002-pwg2gq/cat.jpg
+
+https://ds2002-pwg2gq.s3.us-east-1.amazonaws.com/cat.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAW3MD7YYJR7GVPJWI%2F20240315%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240315T202340Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=FwoGZXIvYXdzEJz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDKxVk%2Bpo2%2FOHI%2Fco5yLEAQgM2iN1SqcTxYqbQzOBcUxkhQb%2BOJ3ZPXDEflg35fYtZ7BN5YrNdpM9i4JZUh2FumQnNq%2FDHuY5FEFK%2Fu6OJz9JU8Qy9G24gELwhZuvGtZm5k0r3gvFvMH2DBLNOPfw89P4t9bE7O2nZQZkOW0Mh2C3DP2CPuioKlRXdSCTWF1B%2F%2BJ3ftYsNt6MfkevaKgw0bzAD85IX4uQlMKCPKopv652bRMGScRodj63Hnxog7ePfispV8%2BRNukj9xNFhRCVZrr1sScoi7bSrwYyLdg3RYwi0nTghcdmLUAXBwa3YAlnDJd795qRSdF%2FqREXViDR%2BlQk1orpA8yUEg%3D%3D&X-Amz-Signature=64d532fac3fa91133fd712fe84c77b1b3b48079f8c8688b4343ea927c4bcdb48
+
+
+#I did the following but then re-made my bucket again after:
+
+#aws s3 rm s3://ds2002-pwg2gq --recursive
+
+#aws s3 rb s3://ds2002-pwg2gq
