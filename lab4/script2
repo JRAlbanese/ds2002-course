@@ -1,0 +1,18 @@
+#!C:/Users/jalba/AppData/Local/Microsoft/WindowsApps/python3
+
+import boto3
+import requests  #found that this is something you can import online
+
+
+bucket_name = 'ds2002-pwg2gq'
+object_name = 'airplane.jpg'
+url = 'https://www.shutterstock.com/image-photo/airplane-isolated-on-white-background-600nw-584015857.jpg'
+expires_in = 604800
+
+get_url = requests.get(file_url).content
+s3.put_object(s3.put_object(Body=file_data, Bucket=bucket_name, Key=object_key_name, ACL='public-read')
+
+response = s3.generate_presigned_url('get_object', Params = {'Bucket': bucket_name, 'Key': object_name, ExpiresIn= expires_in)
+
+print(presigned_url)  #this should be the url that lasts 7 days
+
